@@ -59,13 +59,25 @@
                 >
                     <group>
                         <group>
-                            <field name="fiscal_type" required="1" />
+                            <field
+                                name="fiscal_type"
+                                required="1"
+                                groups="l10n_br_fiscal.group_manager"
+                            />
                             <field
                                 name="icms_origin"
                                 attrs="{'required': [('fiscal_type', '!=', '09')], 'invisible': [('fiscal_type', '=', '09')]}"
                             />
-                            <field name="ncm_id" required="1" />
-                            <field name="tax_icms_or_issqn" required="1" />
+                            <field
+                                name="ncm_id"
+                                required="1"
+                                groups="l10n_br_fiscal.group_manager"
+                            />
+                            <field
+                                name="tax_icms_or_issqn"
+                                required="1"
+                                groups="l10n_br_fiscal.group_manager"
+                            />
                             <field
                                 name="service_type_id"
                                 attrs="{'invisible': [('fiscal_type', '!=', '09')]}"
@@ -85,7 +97,11 @@
                             </field>
                         </group>
                         <group>
-                            <field name="fiscal_genre_id" required="1" />
+                            <field
+                                name="fiscal_genre_id"
+                                required="1"
+                                groups="l10n_br_fiscal.group_manager"
+                            />
                             <field
                                 name="cest_id"
                                 attrs="{'invisible': [('fiscal_type', '=', '09')]}"
