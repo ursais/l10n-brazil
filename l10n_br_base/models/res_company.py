@@ -118,9 +118,6 @@ class Company(models.Model):
         inverse="_inverse_suframa",
     )
 
-    type = fields.Selection(related="partner_id.type")
-    country_enforce_cities = fields.Boolean(related="partner_id.country_enforce_cities")
-
     @api.model
     def _fields_view_get(
         self, view_id=None, view_type="form", toolbar=False, submenu=False
