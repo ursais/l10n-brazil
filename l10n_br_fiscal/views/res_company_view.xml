@@ -11,6 +11,7 @@
                     name="fiscal"
                     string="Fiscal"
                     groups="l10n_br_fiscal.group_manager"
+                    attrs="{'invisible': [('country_id', '!=', %(base.br)d)]}"
                 >
                     <notebook>
                         <page name="tax_framework" string="Tax Framework">
