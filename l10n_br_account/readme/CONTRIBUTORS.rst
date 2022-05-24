@@ -1,2 +1,12 @@
-* Renato Lima <renato.lima@akretion.com.br>
-* Raphaël Valyi <raphael.valyi@akretion.com.br>
+* `Akretion <https://akretion.com/pt-BR>`_:
+
+  * Renato Lima <renato.lima@akretion.com.br>
+  * Raphaël Valyi <raphael.valyi@akretion.com.br>
+
+* `KMEE <https://www.kmee.com.br>`_:
+
+  * Luis Felipe Mileo <mileo@kmee.com.br>
+
+* `Escodoo <https://www.escodoo.com.br>`_:
+
+  * Marcel Savegnago <marcel.savegnago@escodoo.com.br>
