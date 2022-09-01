@@ -211,11 +211,28 @@ class SaleOrder(models.Model):
 
     @api.depends("order_line")
     def _compute_amount(self):
+        if self.company_id.country_id.id != self.env.ref("base.br").id:
+            return
         super()._compute_amount()
 
     @api.depends("order_line.price_total")
     def _amount_all(self):
         """Compute the total amounts of the SO."""
+        if self.company_id.country_id.id != self.env.ref("base.br").id:
+            for order in self:
+                amount_untaxed = amount_tax = 0.0
+                for line in order.order_line:
+                    amount_untaxed += line.price_subtotal
+                    amount_tax += line.price_tax
+                order.update(
+                    {
+                        "amount_untaxed": amount_untaxed,
+                        "amount_tax": amount_tax,
+                        "amount_total": amount_untaxed + amount_tax,
+                    }
+                )
+            return
+
         for order in self:
             order._compute_amount()
 
@@ -227,7 +244,6 @@ class SaleOrder(models.Model):
         order_view = super().fields_view_get(view_id, view_type, toolbar, submenu)
 
         if view_type == "form":
-
             view = self.env["ir.ui.view"]
 
             sub_form_view = order_view["fields"]["order_line"]["views"]["form"]["arch"]
