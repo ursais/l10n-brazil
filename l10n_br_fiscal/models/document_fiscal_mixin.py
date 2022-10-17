@@ -422,3 +422,9 @@ class FiscalDocumentMixin(models.AbstractModel):
     delivery_costs = fields.Selection(
         related="company_id.delivery_costs",
     )
+
+    country_id = fields.Many2one(
+        comodel_name="res.country",
+        string="Country",
+        compute="_compute_country",
+    )
