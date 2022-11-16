@@ -413,3 +413,9 @@ class FiscalDocumentMixin(models.AbstractModel):
     )
 
     force_compute_delivery_costs_by_total = fields.Boolean(default=False)
+    
+    country_id = fields.Many2one(
+        comodel_name="res.country",
+        string="Country",
+        compute="_compute_country",
+    )
